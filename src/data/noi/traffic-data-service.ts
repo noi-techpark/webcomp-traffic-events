@@ -99,14 +99,14 @@ function _parseDirectionFromDescription(d: AnnouncementInfo): AnnouncementShortI
 
 
 const _tagsIcon_default = 'icon-caution.svg';
-const _tagsIcon_priority_0 = {
+const _tagsIcon_priority_high = {
   "traffic-event:accident": "icon-accident.svg",
   "traffic-event:animal-on-road": "icon-animal-on-road.svg",
   "traffic-event:caution": "icon-caution.svg",
   "traffic-event:closure": "icon-closure.svg",
   "traffic-event:congestion": "icon-congestion.svg",
-  "traffic-event:current": "icon-current.svg",
-  "traffic-event:event": "icon-event.svg",
+  "traffic-event:current": "icon-info.svg",
+  "traffic-event:event": "icon-info.svg",
   "traffic-event:hindrance": "icon-hindrance.svg",
   "traffic-event:maintenance": "icon-maintenance.svg",
   "traffic-event:mountain-pass": "icon-mountaian-pass.svg",
@@ -120,9 +120,9 @@ const _tagsIcon_priority_0 = {
   "traffic-event:weather-related": "icon-weather-related.svg",
 };
 
-const _tagsIcon_priority_1 = {
+const _tagsIcon_priority_low = {
   "announcement:trail-closure": "icon-trail-closure.svg",
-  "announcement:traffic-event": "icon-traffic-event.svg",
+  "announcement:traffic-event": "icon-info.svg",
 }
 
 function _getIcon(tags: string[]): string {
@@ -130,8 +130,8 @@ function _getIcon(tags: string[]): string {
 
   for (let i = tags.length - 1; i >= 0; i--) {
     const tag = tags[i];
-    if (_tagsIcon_priority_0[tag]) {
-      icon = _tagsIcon_priority_0[tag];
+    if (_tagsIcon_priority_high[tag]) {
+      icon = _tagsIcon_priority_high[tag];
       break;
     }
   }
@@ -139,8 +139,8 @@ function _getIcon(tags: string[]): string {
   if (!icon) {
     for (let i = tags.length - 1; i >= 0; i--) {
       const tag = tags[i];
-      if (_tagsIcon_priority_1[tag]) {
-        icon = _tagsIcon_priority_1[tag];
+      if (_tagsIcon_priority_low[tag]) {
+        icon = _tagsIcon_priority_low[tag];
         break;
       }
     }
